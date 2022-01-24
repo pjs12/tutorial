@@ -1,0 +1,46 @@
+{% load static %}
+
+<button id='get'>GET</button>
+<button id='post'>POST</button>
+<button id='json'>JSON</button>
+
+<img src = '/static/zzanggu.jpg'>
+<img src = '{% static "zzanggu.jpg" %}'>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    // 이벤트 작성 (버튼 누르기)
+    document.querySelector('#get').addEventListener('click', () => {
+        const data = axios({
+            url: '/second/req/ajax/get/',
+            method: 'get',
+            params: { }
+        });
+        data.then(function (result) {   // 비동기 작업 후 처리하는 CallBack
+            console.log(result.data);
+        });
+    });
+
+    document.querySelector('#post').addEventListener('click', () => {
+        const data = axios({
+            url: '/second/req/ajax/post/',
+            method: 'post',
+            params: { }
+        });
+        data.then(function (result) {   // 비동기 작업 후 처리하는 CallBack
+            console.log(result.data);
+        });
+    });
+
+    document.querySelector('#json').addEventListener('click', () => {
+        const data = axios({
+            url: '/second/req/ajax/json/',
+            method: 'post',
+            params: { }
+        });
+        data.then(function (result) {   // 비동기 작업 후 처리하는 CallBack
+            console.log(result.data);
+        });
+    });
+    
+</script>
